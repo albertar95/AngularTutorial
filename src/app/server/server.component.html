@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <p>{{ serverName }}</p> <!--interpolition-->
+  </div>
+  <div class="row">
+    <button class="btn btn-primary" [disabled]="addServerAllowed"> add server</button><!--property binding-->
+  </div>
+  <div class="row">
+    <button class="btn btn-success" (click)="onAddServerClick($event)"> add server</button><!--event binding-->
+  </div>
+  <div class="row">
+    <p>{{ addServerResult }}</p>
+  </div>
+  <div class="row">
+    <input class="form-control" [(ngModel)]="serverName" (input)="serverNameChange()" /> <!--event and prop binding-->
+  </div>
+  <div class="row">
+    <p>{{ nameChangeResult }}</p>
+  </div>
+  <hr />
+  <h3>directive section</h3>
+  <hr />
+  <button class="btn btn-warning" (click)="addNewServerWithName()">create new server</button>
+  <app-sub-server *ngif="addServerAllowed"></app-sub-server>
+  <app-sub-server *ngfor="let server of serverNames"></app-sub-server>
+  <p [ngStyle]="{backgroundColor: getcolor()}">sth</p>
+  <h2>query params : {{ qtest }}</h2>
+  <router-outlet></router-outlet>
+</div>

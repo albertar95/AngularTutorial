@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <input class="form-control" type="text" [(ngModel)]="Sth" />
+      <input class="form-control" type="text" #txtSth />
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-primary" [ngClass]="{activeBtn : SetBtn === 1 }" [ngStyle]="{color : 'aqua'}" (click)="CreateSth()">create sth</button>
+      <button class="btn btn-primary" [ngClass]="{activeBtn : SetBtn === 2 }" [ngStyle]="{color : 'aqua'}" (click)="CreateSth2(txtSth)">create sth by refrence</button>
+      <button class="btn btn-primary" [ngClass]="{activeBtn : SetBtn === 3 }" [ngStyle]="{color : 'aqua'}" (click)="CreateSth3()">create sth by viewchild</button>
+      <div [ngSwitch]="SetBtn">
+        <p *ngSwitchCase="0">setbtn is 0</p>
+        <p *ngSwitchCase="1">setbtn is 1</p>
+        <p *ngSwitchCase="2">setbtn is 2</p>
+        <p *ngSwitchCase="3">setbtn is 3</p>
+      </div>
+      <ul class="nav">
+        <li class="dropdown" myDropDown>
+          manage
+          <ul class="dropdown-menu">
+            <li>
+              test
+            </li>
+            <li>
+              test2
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <app-data-binding-test-sub *ngFor="let s of SthArray" [SthValue]="s"></app-data-binding-test-sub>
+  </div>
+</div>

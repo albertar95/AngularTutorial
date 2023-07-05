@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <input type="text" class="form-control" #txtSth />
+  </div>
+  <div class="row">
+    <button class="btn btn-primary" (click)="AddSthEvent()">add</button>
+  </div>
+  <hr />
+  <div class="row">
+    <input type="text" placeholder="search..." value="" [(ngModel)]="txtSearch" />
+  </div>
+  <div class="row">
+    <ul>
+      <app-service-and-disub *ngFor="let Sth of Sths | searchThis : txtSearch" [Sth]="Sth"></app-service-and-disub>
+    </ul>
+  </div>
+</div>
